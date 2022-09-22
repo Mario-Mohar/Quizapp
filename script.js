@@ -5,7 +5,7 @@ let questions = [
         "answer_2":"James T. Kirk",
         "answer_3":"Tim Berners-Lee",
         "answer_4":"Justin Bieber",
-        "rightAnswer":3,
+        "rightAnswer": 3
     },
     {
         "question":"What is the name of the founder of CSS?", 
@@ -13,7 +13,7 @@ let questions = [
         "answer_2":"Bjarne Stroustrup",
         "answer_3":"Håkon Wium Lie",
         "answer_4":"Chris Lattner",
-        "rightAnswer":3,
+        "rightAnswer": 3
     },
     {
         "question":"What is the name of the founder of JavaScript?", 
@@ -21,7 +21,7 @@ let questions = [
         "answer_2":"Guido van Rossum",
         "answer_3":"Dennis Ritchie",
         "answer_4":"Bjarne Stroustrup",
-        "rightAnswer":1,
+        "rightAnswer": 1
     },
     {
         "question":"What is the name of the founder of Python?",
@@ -29,10 +29,39 @@ let questions = [
         "answer_2":"Bjarne Stroustrup",
         "answer_3":"Dennis Ritchie",
         "answer_4":"Brendan Eich",
-        "rightAnswer":1,
+        "rightAnswer": 1
     },
 ];
 
+let currentQuestion = 0;
+
 function init() {
     document.getElementById("all-questions").innerHTML = questions.length;
+
+    showQuestion();
+
+}
+
+function showQuestion() {
+    let question = questions[currentQuestion];
+
+    document.getElementById("questiontext").innerHTML = question["question"];
+    document.getElementById("answer_1").innerHTML = question["answer_1"];
+    document.getElementById("answer_2").innerHTML = question["answer_2"];
+    document.getElementById("answer_3").innerHTML = question["answer_3"];
+    document.getElementById("answer_4").innerHTML = question["answer_4"];
+}
+
+function answer(selection) {
+    let question = questions[currentQuestion];
+    console.log('Selected answer is ', selection);
+    let selectedQuestionNumber = selection.split(-1);
+    console.log('Selected question number is', selectedQuestionNumber);
+    console.log('Current question is', question["rightAnswer"]);
+
+    if (selectedQuestionNumber == question["rightAnswer"]) {
+        console.log('Correct answer');
+    } else {
+        console.log('Wrong answer');
+    }
 }
