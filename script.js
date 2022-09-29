@@ -13,7 +13,7 @@ let questions = [
         "answer_2":"Bjarne Stroustrup",
         "answer_3":"Håkon Wium Lie",
         "answer_4":"Chris Lattner",
-        "rightAnswer": 3
+        "rightAnswer":"answer_3",
     },
     {
         "question":"What is the name of the founder of JavaScript?", 
@@ -21,7 +21,7 @@ let questions = [
         "answer_2":"Guido van Rossum",
         "answer_3":"Dennis Ritchie",
         "answer_4":"Bjarne Stroustrup",
-        "rightAnswer": 1
+        "rightAnswer":"answer_1",
     },
     {
         "question":"What is the name of the founder of Python?",
@@ -29,7 +29,7 @@ let questions = [
         "answer_2":"Bjarne Stroustrup",
         "answer_3":"Dennis Ritchie",
         "answer_4":"Brendan Eich",
-        "rightAnswer": 1
+        "rightAnswer":"answer_1",
     },
 ];
 
