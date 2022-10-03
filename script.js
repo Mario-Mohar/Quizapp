@@ -64,10 +64,15 @@ function answer(selection) {
     const selectedQuestionNumber = selection.split(-1);
     console.log('Selected question number is ', selectedQuestionNumber)
     console.log('Correct question is ', questionon['rightAnswer']);
+    
+    let idOfSelectedQuestion = 'aswer_${questionon['rightAnswer']}';
 
     if (selectedQuestionNumber == questionon['rightAnswer']) {
         console.log('Correct answer');
+        document.getElementById(selection).parentNode.classList.add('bg-success');
     } else {
         console.log('Wrong answer');
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfSelectedQuestion).parentNode.classList.add('bg-success');
     }
 }
