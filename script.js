@@ -1,3 +1,4 @@
+/*variable for the questions*/
 let questions = [
     {
         "question":"What is the name of the founder of HTML?", 
@@ -32,11 +33,11 @@ let questions = [
         "rightAnswer":"answer_1",
     },
 ];
-
+/*variable for the current question*/
 let currentQuestion = 0;
 
 
-
+/*function for load the question*/
 function init() {
     document.getElementById('all-questions').innerHTML = questions.length;
 
@@ -45,34 +46,40 @@ function init() {
 }
 
 
-
+/*function for show the question*/
 function showQuestion() {
     let question = questions[currentQuestion];
 
-    document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+    document.getElementById('questiontext').innerHTML = question['question'];/*show the question*/
+    document.getElementById('answer_1').innerHTML = question['answer_1'];/*show the answer 1*/
+    document.getElementById('answer_2').innerHTML = question['answer_2'];/*show the answer 2*/
+    document.getElementById('answer_3').innerHTML = question['answer_3'];/*show the answer 3*/
+    document.getElementById('answer_4').innerHTML = question['answer_4'];/*show the answer 4*/
 }
 
 
-
+/*function for select the answer*/
 function answer(selection) {
-    let questionon = questions[currentQuestion];
+    let question = questions[currentQuestion];
     console.log('Selection answer is ', selection)
-    const selectedQuestionNumber = selection.split(-1);
-    console.log('Selected question number is ', selectedQuestionNumber)
-    console.log('Correct question is ', questionon['rightAnswer']);
-    
-    let idOfSelectedQuestion = 'aswer_${questionon['rightAnswer']}';
-
-    if (selectedQuestionNumber == questionon['rightAnswer']) {
+    let selectedQuestionNumber = "rightAnswer";
+    console.log('Correct answer is ', question['rightAnswer']);
+    if (selection == question['rightAnswer']) {
         console.log('Correct answer');
-        document.getElementById(selection).parentNode.classList.add('bg-success');
+        document.getElementById('answer_' + selection).classList.add('correct');
+        document.getElementById('answer_' + selection).classList.remove('wrong');
     } else {
         console.log('Wrong answer');
-        document.getElementById(selection).parentNode.classList.add('bg-danger');
-        document.getElementById(idOfSelectedQuestion).parentNode.classList.add('bg-success');
+        document.getElementById('answer_' + selection).classList.add('wrong');
+        document.getElementById('answer_' + selection).classList.remove('correct');
+        document.getElementById('answer_' + question['rightAnswer']).classList.add('correct');
     }
+
+
+    
+  /*  if (selectedQuestionNumber == question['rightAnswer']) {
+        console.log('Correct answer');
+    } else {
+        console.log('Wrong answer');
+    }*/
 }
