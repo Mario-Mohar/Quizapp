@@ -62,17 +62,13 @@ function showQuestion() {
 function answer(selection) {
     let question = questions[currentQuestion];
     console.log('Selection answer is ', selection)
-    let selectedQuestionNumber = "rightAnswer";
     console.log('Correct answer is ', question['rightAnswer']);
     if (selection == question['rightAnswer']) {
         console.log('Correct answer');
-        document.getElementById('answer_' + selection).classList.add('correct');
-        document.getElementById('answer_' + selection).classList.remove('wrong');
+        document.getElementById('selection').innerHTML.add('bg-success');
+        document.getElementById('selection').innerHTML.remove('bg-danger');
     } else {
         console.log('Wrong answer');
-        document.getElementById('answer_' + selection).classList.add('wrong');
-        document.getElementById('answer_' + selection).classList.remove('correct');
-        document.getElementById('answer_' + question['rightAnswer']).classList.add('correct');
     }
 
 
