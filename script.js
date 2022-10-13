@@ -61,15 +61,21 @@ function showQuestion() {
 /*function for select the answer*/
 function answer(selection) {
     let question = questions[currentQuestion];
-    console.log('Selection answer is ', selection)
     console.log('Correct answer is ', question['rightAnswer']);
+
+    let idOfRightAnswer = question['rightAnswer'];
+
     if (selection == question['rightAnswer']) {
         console.log('Correct answer');
-        document.getElementById('selection').innerHTML.add('bg-success');
-        document.getElementById('selection').innerHTML.remove('bg-danger');
+        document.getElementById(selection).parentElement.classList.add('bg-success');
+        document.getElementById(selection).parentElement.classList.remove('bg-danger');
     } else {
         console.log('Wrong answer');
+        document.getElementById(selection).parentElement.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer).parentElement.classList.add('bg-success');
     }
+
+    document.getElementById('next').disabled = false;
 
 
     
