@@ -29,7 +29,15 @@
     <div class="cardcontainer">
       <div class="quiz-card">
           <img src="img/quiz.png" class="card-img-top" alt="...">
-          <div class="card-body">
+
+          <div class="card-body" id="endscreen" style="display: none;">
+          <div class="quizEnd" style="text-align: center;" >Quiz beendet</div>
+          <div class="imgWinner"><img src="img/winner.jpeg" width="100%" alt="" class="imgEnd" style="border-radius: 50%;"></div>
+          <div>Du hattest <b id="correctAnswers"></b> Fragen von <b id="amoundOfQuestions"></b> richtig beantwortet</div>
+          <button class="btn btn-primary" onclick="reload()" id="restart">Reload the site</button>
+          </div>
+
+          <div class="card-body" id="question-body">
           <h5 class="card-title mb-2 mt-2" id="questiontext">Frage</h5>
           <div class="card mb-2 card-hover" onclick="answer('answer_1')">
             <div class="card-body" id="answer_1">
@@ -53,11 +61,13 @@
           </div>
           <div class="cardfooter">
             <span>
-            <b>1</b> von <b id="all-questions"></b> Fragen
+            <b id="numberOfQuestion"></b> von <b id="all-questions"></b> Fragen
             </span>
-            <button class="btn btn-primary" disabled id="next">Nächste Frage</button>
+            <button class="btn btn-primary" onclick="nextQuestion()" disabled id="next">Nächste Frage</button>
+            <button class="btn btn-primary" onclick="restart()" id="restart">Restart</button>
           </div>
           </div>
+          
       </div>
     </div>
     <!--- End Container -->

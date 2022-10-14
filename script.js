@@ -36,6 +36,7 @@ let questions = [
 /*variable for the current question*/
 let currentQuestion = 0;
 
+let correctAnswers = 0;
 
 /*function for load the question*/
 function init() {
@@ -48,15 +49,23 @@ function init() {
 
 /*function for show the question*/
 function showQuestion() {
+
+    if (currentQuestion >= questions.length) {
+        showResult();
+        return;
+    }
+    else {
+
     let question = questions[currentQuestion];
 
+    document.getElementById('numberOfQuestion').innerHTML = currentQuestion + 1; /*show the number of question*/
     document.getElementById('questiontext').innerHTML = question['question'];/*show the question*/
     document.getElementById('answer_1').innerHTML = question['answer_1'];/*show the answer 1*/
     document.getElementById('answer_2').innerHTML = question['answer_2'];/*show the answer 2*/
     document.getElementById('answer_3').innerHTML = question['answer_3'];/*show the answer 3*/
     document.getElementById('answer_4').innerHTML = question['answer_4'];/*show the answer 4*/
 }
-
+}
 
 /*function for select the answer*/
 function answer(selection) {
@@ -69,6 +78,7 @@ function answer(selection) {
         console.log('Correct answer');
         document.getElementById(selection).parentElement.classList.add('bg-success');
         document.getElementById(selection).parentElement.classList.remove('bg-danger');
+        correctAnswers++;
     } else {
         console.log('Wrong answer');
         document.getElementById(selection).parentElement.classList.add('bg-danger');
@@ -76,12 +86,45 @@ function answer(selection) {
     }
 
     document.getElementById('next').disabled = false;
+}
 
+function nextQuestion() { /*variable currentQuestion is +1*/
+    currentQuestion++;
+    document.getElementById('next').disabled = true; /*disable the button next*/
+    resetClass();
+    showQuestion(); /*show the question function from start*/
+}
 
+function resetClass() {
+    document.getElementById('answer_1').parentElement.classList.remove('bg-success'); /*remove the class bg-success*/
+    document.getElementById('answer_1').parentElement.classList.remove('bg-danger'); /*remove the class bg-danger*/
+    document.getElementById('answer_2').parentElement.classList.remove('bg-success');
+    document.getElementById('answer_2').parentElement.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentElement.classList.remove('bg-success');
+    document.getElementById('answer_3').parentElement.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentElement.classList.remove('bg-success');
+    document.getElementById('answer_4').parentElement.classList.remove('bg-danger');
+}
+
+/*function for show the result*/
+function showResult() {
+    document.getElementById('endscreen').style = ''; /*hshow the endscreen*/
+    document.getElementById('question-body').style = 'display: none'; /*show the result*/
+
+    document.getElementById('amoundOfQuestions').innerHTML = questions.length; /*show the amound of questions*/
+    document.getElementById('correctAnswers').innerHTML = correctAnswers; /*show the correct answers*/
+}
+
+/*function for restart the quiz*/
+function restart() {
     
-  /*  if (selectedQuestionNumber == question['rightAnswer']) {
-        console.log('Correct answer');
-    } else {
-        console.log('Wrong answer');
-    }*/
+    currentQuestion = 0; /*variable currentQuestion is 0 as start*/
+    document.getElementById('next').disabled = true; /*disable the button next*/
+    resetClass();
+    showQuestion(); /*show the question function from start*/
+}
+
+function reload() {
+    location.reload();
+    return false;
 }
