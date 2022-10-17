@@ -56,6 +56,12 @@ function showQuestion() {
     }
     else {
 
+    let percent = currentQuestion / questions.length;
+    percent = Math.round(percent * 100);
+    
+    document.getElementById('progressbar').innerHTML = `${percent} %`;
+    document.getElementById('progressbar').style = 'width: ' + percent + '%';
+
     let question = questions[currentQuestion];
 
     document.getElementById('numberOfQuestion').innerHTML = currentQuestion + 1; /*show the number of question*/
