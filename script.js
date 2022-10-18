@@ -56,12 +56,6 @@ function showQuestion() {
     }
     else {
 
-    let percent = currentQuestion / questions.length;
-    percent = Math.round(percent * 100);
-    
-    document.getElementById('progressbar').innerHTML = `${percent} %`;
-    document.getElementById('progressbar').style = 'width: ' + percent + '%';
-
     let question = questions[currentQuestion];
 
     document.getElementById('numberOfQuestion').innerHTML = currentQuestion + 1; /*show the number of question*/
@@ -71,6 +65,13 @@ function showQuestion() {
     document.getElementById('answer_3').innerHTML = question['answer_3'];/*show the answer 3*/
     document.getElementById('answer_4').innerHTML = question['answer_4'];/*show the answer 4*/
 }
+
+let percent = currentQuestion / questions.length;
+    percent = Math.round(percent * 100);
+    
+    document.getElementById('progressbar').innerHTML = `${percent} %`;
+    document.getElementById('progressbar').style = 'width: ' + percent + '%';
+
 }
 
 /*function for select the answer*/
