@@ -52,7 +52,7 @@ function showQuestion() {
 
     if (currentQuestion >= questions.length) {
         showResult();
-        return;
+
     }
     else {
 
