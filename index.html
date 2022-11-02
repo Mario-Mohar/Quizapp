@@ -34,42 +34,46 @@
           <div class="progress">
             <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressbar" role="progressbar" style="width:"></div>
           </div>
+          <!---end progressbar-->
+          <!---cardbody Endscreen-->
           <div class="card-body" id="endscreen" style="display: none;">
           <div class="quizEnd" style="text-align: center;" >Quiz beendet</div>
           <div class="imgWinner"><img src="img/winner.jpeg" width="100%" alt="" class="imgEnd" style="border-radius: 50%;"></div>
           <div>Du hattest <b id="correctAnswers"></b> Fragen von <b id="amoundOfQuestions"></b> richtig beantwortet</div>
           <button class="btn btn-primary" onclick="reload()" id="restart">Reload the site</button>
           </div>
-
+          <!---cardbody Endscreen-->
+          <!---cardbody Questions and Answer-->
           <div class="card-body" id="question-body">
-          <h5 class="card-title mb-2 mt-2" id="questiontext">Frage</h5>
-          <div class="card mb-2 card-hover" onclick="answer('answer_1')">
-            <div class="card-body" id="answer_1">
-              Antwort 1
+            <h5 class="card-title mb-2 mt-2" id="questiontext">Frage</h5>
+            <div class="card mb-2 card-hover" onclick="answer('answer_1')">
+              <div class="card-body" id="answer_1">
+                Antwort 1
+              </div>
+            </div>
+            <div class="card mb-2 card-hover" onclick="answer('answer_2')">
+              <div class="card-body" id="answer_2">
+                Antwort 2
+              </div>
+            </div>
+            <div class="card mb-2 card-hover" onclick="answer('answer_3')">
+              <div class="card-body" id="answer_3">
+                Antwort 3
+              </div>
+            </div>
+            <div class="card mb-2 card-hover" onclick="answer('answer_4')">
+              <div class="card-body" id="answer_4">
+                Antwort 4
+              </div>
             </div>
           </div>
-          <div class="card mb-2 card-hover" onclick="answer('answer_2')">
-            <div class="card-body" id="answer_2">
-              Antwort 2
-            </div>
-          </div>
-          <div class="card mb-2 card-hover" onclick="answer('answer_3')">
-            <div class="card-body" id="answer_3">
-              Antwort 3
-            </div>
-          </div>
-          <div class="card mb-2 card-hover" onclick="answer('answer_4')">
-            <div class="card-body" id="answer_4">
-              Antwort 4
-            </div>
-          </div>
-          </div>
+          <!---cardbody Questions and Answer-->
       <div class="cardfooter">
           <span>
           <b id="numberOfQuestion"></b> von <b id="all-questions"></b> Fragen
           </span>
-          <button class="btn btn-primary" onclick="nextQuestion()" disabled id="next">Nächste Frage</button>
-          <button class="btn btn-primary" onclick="restart()" id="restart">Restart</button>
+          <button class="btn btn-primary" style=" " onclick="nextQuestion()" disabled id="next">Nächste Frage</button>
+          <button class="btn btn-primary footer" style=" " onclick="restart()" id="restart_footer">Restart</button>
         </div>  
           </div>
           

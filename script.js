@@ -85,11 +85,15 @@ function answer(selection) {
         console.log('Correct answer');
         document.getElementById(selection).parentElement.classList.add('bg-success');
         document.getElementById(selection).parentElement.classList.remove('bg-danger');
+        document.getElementById('answer_1').disabled = false;
         correctAnswers++;
     } else {
         console.log('Wrong answer');
         document.getElementById(selection).parentElement.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentElement.classList.add('bg-success');
+        document.getElementById('answer_2').disabled = false;
+        document.getElementById('answer_3').disabled = false;
+        document.getElementById('answer_4').disabled = false;
     }
 
     document.getElementById('next').disabled = false;
@@ -115,11 +119,14 @@ function resetClass() {
 
 /*function for show the result*/
 function showResult() {
-    document.getElementById('endscreen').style = ''; /*hshow the endscreen*/
+    document.getElementById('endscreen').style = ''; /*show the endscreen*/
     document.getElementById('question-body').style = 'display: none'; /*show the result*/
 
     document.getElementById('amoundOfQuestions').innerHTML = questions.length; /*show the amound of questions*/
     document.getElementById('correctAnswers').innerHTML = correctAnswers; /*show the correct answers*/
+ 
+    document.getElementById('restart_footer').style = 'display: none'; /*hide the progressbar*/
+    document.getElementById('next').style = 'display: none'; /*hide the button next*/
 }
 
 /*function for restart the quiz*/
