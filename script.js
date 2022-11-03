@@ -85,15 +85,13 @@ function answer(selection) {
         console.log('Correct answer');
         document.getElementById(selection).parentElement.classList.add('bg-success');
         document.getElementById(selection).parentElement.classList.remove('bg-danger');
-        document.getElementById('answer_1').disabled = false;
+        document.getElementById('question-body').style = 'pointer-events: none;'; /*disable the Aswers*/
         correctAnswers++;
     } else {
         console.log('Wrong answer');
         document.getElementById(selection).parentElement.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentElement.classList.add('bg-success');
-        document.getElementById('answer_2').disabled = false;
-        document.getElementById('answer_3').disabled = false;
-        document.getElementById('answer_4').disabled = false;
+        document.getElementById('question-body').style = 'pointer-events: none;'; /*disable the Aswers*/
     }
 
     document.getElementById('next').disabled = false;
@@ -115,6 +113,7 @@ function resetClass() {
     document.getElementById('answer_3').parentElement.classList.remove('bg-danger');
     document.getElementById('answer_4').parentElement.classList.remove('bg-success');
     document.getElementById('answer_4').parentElement.classList.remove('bg-danger');
+    document.getElementById('question-body').style = 'pointer-events: auto;'; /*enable the Aswers*/
 }
 
 /*function for show the result*/
